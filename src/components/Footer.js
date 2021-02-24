@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { Container, Button, Body, colors } from '../Styles';
 
@@ -11,21 +12,24 @@ import { ReactComponent as PinterestIcon } from '../images/shared/desktop/icon-p
 import { ReactComponent as InstagramIcon } from '../images/shared/desktop/icon-instagram.svg';
 
 const Footer = () => {
+	const location = useLocation();
 	return (
-		<FooterContainer>
-			<ContactProject>
-				<div>
-					<h5>Let's talk about your project</h5>
-					<Body>
-						Ready to take it to the next level? Contact us today and find out
-						how our expertise can help your business grow.
-					</Body>
-				</div>
-				<Button>Get in touch</Button>
-				<img src={Circles2} alt='Background Circles' />
-				<img src={Circle} alt='Background Circles' />
-				<img src={Circles2} alt='Background Circles' />
-			</ContactProject>
+		<FooterContainer height={(location.pathname === '/contact').toString()}>
+			{location.pathname !== '/contact' && (
+				<ContactProject>
+					<div>
+						<h5>Let's talk about your project</h5>
+						<Body>
+							Ready to take it to the next level? Contact us today and find out
+							how our expertise can help your business grow.
+						</Body>
+					</div>
+					<Button>Get in touch</Button>
+					<img src={Circles2} alt='Background Circles' />
+					<img src={Circle} alt='Background Circles' />
+					<img src={Circles2} alt='Background Circles' />
+				</ContactProject>
+			)}
 			<ContactContainer>
 				<div className='TopSection'>
 					<img src='/images/logo-light.png' alt='Logo' />
@@ -35,7 +39,7 @@ const Footer = () => {
 						<p>Contact</p>
 					</div>
 				</div>
-                <hr/>
+				<hr />
 				<div className='BottomSection'>
 					<div className='ContactInfo'>
 						<Body>
@@ -68,10 +72,12 @@ const Footer = () => {
 export default Footer;
 
 const FooterContainer = styled(Container)`
-	min-height: 50vh;
+	min-height: ${({ height }) => (JSON.parse(height) ? '0vh' : '60vh')};
 	min-width: 100vw;
-	margin-top: 380px;
+	margin-top: ${({ height }) => (height ? '160px' : '380px')};
+	padding-bottom: ${({ height }) => (height ? '40px' : '0')};
 	position: relative;
+	outline: 1px solid red;
 	background-color: ${colors.black};
 `;
 
@@ -127,9 +133,8 @@ const ContactProject = styled(Container)`
 `;
 
 const ContactContainer = styled.div`
-	max-height: 177px;
 	width: 1111px;
-    margin-top: 90px;
+	margin-top: 90px;
 	.TopSection {
 		display: flex;
 		justify-content: space-between;
@@ -152,17 +157,17 @@ const ContactContainer = styled.div`
 			}
 		}
 	}
-    hr {
-        height: 1px;
-        width: 100%;
-        margin: 40px 0;
-        opacity: 10%;
-        background-color: ${colors.white};
-    }
+	hr {
+		height: 1px;
+		width: 100%;
+		margin: 40px 0;
+		opacity: 10%;
+		background-color: ${colors.white};
+	}
 	.BottomSection {
 		display: flex;
 		align-items: flex-end;
-        justify-content: space-between;
+		justify-content: space-between;
 		.ContactInfo {
 			display: flex;
 			color: ${colors.white};

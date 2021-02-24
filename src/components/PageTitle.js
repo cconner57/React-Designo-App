@@ -49,7 +49,7 @@ const TitleContainer = styled(Container)`
 		}
 		.Phone {
 			position: absolute;
-			top: -40px;
+			top: -60px;
 			right: 0;
 			z-index: 3;
 		}

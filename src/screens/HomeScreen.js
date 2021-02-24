@@ -64,7 +64,6 @@ export default HomeScreen;
 const HomeContainer = styled(Container)`
 	min-height: 100vh;
 	min-width: 100vw;
-	display: flex;
 	flex-direction: column;
 	position: relative;
 	.LeafPatternTop {
