@@ -40,7 +40,7 @@ const LocationContainer = styled(Container)`
 		height: 100%;
 		top: 0;
 		left: 0px;
-		z-index: 2;
+		z-index: -1;
 		background: url(${Circle}) no-repeat;
 		${({ active }) =>
 			active === 'Canada'
