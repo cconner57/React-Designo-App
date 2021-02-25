@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PageTitle from '../components/PageTitle';
 import Location from '../components/Location';
+import InputError from '../components/InputError';
 import styled from 'styled-components';
 import { Container, Button, colors } from '../Styles';
 import Circle from '../images/contact/desktop/bg-pattern-hero-desktop.svg';
@@ -8,6 +9,39 @@ import Circle from '../images/contact/desktop/bg-pattern-hero-desktop.svg';
 import { ReactComponent as LeafPattern } from '../images/shared/desktop/bg-pattern-leaf.svg';
 
 const ContactScreen = () => {
+	const [form, setForm] = useState({
+		name: '',
+		email: '',
+		phone: '',
+		message: '',
+	});
+	const [error, setError] = useState(false);
+
+	const submitHandler = (e) => {
+		e.preventDefault();
+		if (
+			form.name === '' ||
+			form.email === '' ||
+			form.phone === '' ||
+			form.message === ''
+		) {
+			setError(true);
+		} else {
+			console.log(form);
+			setForm({
+				name: '',
+				email: '',
+				phone: '',
+				message: '',
+			});
+			setError(false)
+		}
+	};
+
+	const handleChange = (e) => {
+		setForm({ ...form, [e.target.name]: e.target.value });
+	};
+
 	return (
 		<ContactContainer>
 			<PageTitle
@@ -15,16 +49,49 @@ const ContactScreen = () => {
 				title='Contact Us'
 				text='Ready to take it to the next level? Let’s talk about your	project or idea and find out how we can help your business grow. If you are looking for unique digital experiences that’s relatable to your users, drop us a line.'
 				button>
-				<ContactForm onSubmit={(e) => e.preventDefault()}>
-					<input type='text' name='name' placeholder='Name' />
-					<input type='text' name='email' placeholder='Email Address' />
-					<input type='text' name='phone' placeholder='Phone' />
-					<textarea name='message' cols='30' rows='10'>
-						Your Message
-					</textarea>
+				<ContactForm onSubmit={submitHandler}>
+					<div className='InputContainer'>
+						{error && form.name === '' && <InputError />}
+						<input
+							type='text'
+							name='name'
+							value={form.name}
+							placeholder='Name'
+							onChange={handleChange}
+						/>
+					</div>
+					<div className='InputContainer'>
+						{error && form.email === '' && <InputError />}
+						<input
+							type='text'
+							name='email'
+							value={form.email}
+							placeholder='Email Address'
+							onChange={handleChange}
+						/>
+					</div>
+					<div className='InputContainer'>
+						{error && form.phone === '' && <InputError />}
+						<input
+							type='text'
+							name='phone'
+							value={form.phone}
+							placeholder='Phone'
+							onChange={handleChange}
+						/>
+					</div>
+					<div className='TextAreaContainer'>
+						{error && form.message === '' && <InputError />}
+						<textarea
+							name='message'
+							value={form.message}
+							placeholder='Your Message'
+							onChange={handleChange}
+						/>
+					</div>
 					<Button>Submit</Button>
-					<img className='ContactCircle' src={Circle} alt='Background Circle' />
 				</ContactForm>
+				<img className='ContactCircle' src={Circle} alt='Background Circle' />
 			</PageTitle>
 			<div className='LocationsContainer'>
 				<Location title='Canada' />
@@ -42,8 +109,8 @@ const ContactContainer = styled(Container)`
 	min-height: 85vh;
 	min-width: 100vw;
 	flex-direction: column;
-	p {
-		margin-top: 32px;
+	h1 {
+		margin-bottom: 32px;
 	}
 	.LocationsContainer {
 		height: 364px;
@@ -60,6 +127,12 @@ const ContactContainer = styled(Container)`
 		transform-origin: 50% 75%;
 		transform: rotate(180deg);
 	}
+	.ContactCircle {
+		position: absolute;
+		top: -162px;
+		left: 0px;
+		z-index: -1;
+	}
 `;
 
 const ContactForm = styled.form`
@@ -68,36 +141,54 @@ const ContactForm = styled.form`
 	margin-right: 96px;
 	display: flex;
 	flex-direction: column;
-	input {
+	.InputContainer {
 		height: 38px;
 		width: 380px;
-		background-color: transparent;
-		border-bottom: 1px solid ${colors.white};
-		&::placeholder {
+		margin-bottom: 23px;
+		position: relative;
+		input {
+			height: 38px;
+			width: 380px;
 			padding-left: 16px;
-			color: hsla(0, 0%, 100%, 0.5);
+			color: ${colors.white};
+			background-color: transparent;
+			border-bottom: 1px solid ${colors.white};
+			&::placeholder {
+				color: hsla(0, 0%, 100%, 0.5);
+			}
 		}
-		&:nth-child(2) {
-			margin: 25px 0;
+		input:focus {
+			border-bottom: 3px solid ${colors.white};
+		}
+		input:focus::placeholder {
+			color: ${colors.white};
 		}
 	}
-	textarea {
+	.TextAreaContainer {
 		height: 102px;
 		width: 380px;
-		margin-top: 25px;
-		resize: none;
-		background-color: transparent;
-		padding-left: 16px;
-		color: hsla(0, 0%, 100%, 0.5);
-		border-bottom: 1px solid ${colors.white};
+		margin-bottom: 24px;
+		position: relative;
+		textarea {
+			height: 100%;
+			width: 100%;
+			resize: none;
+			background-color: transparent;
+			padding-left: 16px;
+			color: ${colors.white};
+			border-bottom: 1px solid ${colors.white};
+			&::placeholder {
+				color: hsla(0, 0%, 100%, 0.5);
+			}
+		}
+		textarea:focus {
+			border-bottom: 3px solid ${colors.white};
+		}
+		textarea:focus::placeholder {
+			color: ${colors.white};
+		}
 	}
 	button {
-		margin-top: 24px;
 		align-self: flex-end;
-	}
-	.ContactCircle {
-		position: absolute;
-		top: -162px;
-		left: 0px;
 	}
 `;
