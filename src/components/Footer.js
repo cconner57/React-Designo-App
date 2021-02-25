@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { Container, Button, Body, colors } from '../Styles';
 
@@ -24,7 +24,9 @@ const Footer = () => {
 							how our expertise can help your business grow.
 						</Body>
 					</div>
-					<Button>Get in touch</Button>
+					<Link to='/contact'>
+						<Button>Get in touch</Button>
+					</Link>
 					<img src={Circles2} alt='Background Circles' />
 					<img src={Circle} alt='Background Circles' />
 					<img src={Circles2} alt='Background Circles' />
@@ -104,7 +106,7 @@ const ContactProject = styled(Container)`
 			font-weight: 500;
 		}
 	}
-	button {
+	a {
 		z-index: 3;
 	}
 	img:nth-child(3) {
