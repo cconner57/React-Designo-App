@@ -17,9 +17,9 @@ const WebDesignScreen = () => {
 				title='Web design'
 				text='We build websites that serve as powerful marketing tools and bring
 				memorable brand experiences.'>
-				<img src={Circles2} alt='Background Circles' />
-				<img src={Circle} alt='Background Circles' />
-				<img src={Circles2} alt='Background Circles' />
+				<img className='Circle1' src={Circles2} alt='Background Circles' />
+				<img className='Circle2' src={Circle} alt='Background Circles' />
+				<img className='Circle3' src={Circles2} alt='Background Circles' />
 			</PageTitle>
 			<LeafPattern className='LeafPatternTop' />
 			<div className='DesignItemContainer'>

@@ -17,9 +17,9 @@ const AppDesignScreen = () => {
 				title='App design'
 				text='Our mobile designs bring intuitive digital solutions to your
 				customers right at their fingertips.'>
-				<img src={Circles2} alt='Background Circles' />
-				<img src={Circle} alt='Background Circles' />
-				<img src={Circles2} alt='Background Circles' />
+				<img className='Circle1' src={Circles2} alt='Background Circles' />
+				<img className='Circle2' src={Circle} alt='Background Circles' />
+				<img className='Circle3' src={Circles2} alt='Background Circles' />
 			</PageTitle>
 			<LeafPattern className='LeafPatternTop' />
 			<div className='DesignItemContainer'>

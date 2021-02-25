@@ -9,7 +9,7 @@ const PageTitle = ({ height, title, text, button, children }) => {
 			<div className={button ? 'HomeContainer' : 'TextContainer'}>
 				<H1>{title}</H1>
 				<Body>{text}</Body>
-				{button && (
+				{button === 'about' && (
 					<Button className='AboutButton'>
 						<Link to={`/${button}`}>Learn More</Link>
 					</Button>
@@ -72,13 +72,13 @@ const TitleContainer = styled(Container)`
 			text-align: center;
 		}
 	}
-	img:nth-child(2) {
+	.Circle1 {
 		position: absolute;
 		top: -142px;
 		right: 0;
 		z-index: 2;
 	}
-	img:nth-child(3) {
+	.Circle2 {
 		min-width: 300px;
 		position: absolute;
 		top: -150px;
@@ -86,7 +86,7 @@ const TitleContainer = styled(Container)`
 		transform: rotate(90deg);
 		z-index: 2;
 	}
-	img:last-child {
+	.Circle3 {
 		position: absolute;
 		top: 150px;
 		right: 0;

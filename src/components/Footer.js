@@ -77,7 +77,6 @@ const FooterContainer = styled(Container)`
 	margin-top: ${({ height }) => (height ? '160px' : '380px')};
 	padding-bottom: ${({ height }) => (height ? '40px' : '0')};
 	position: relative;
-	outline: 1px solid red;
 	background-color: ${colors.black};
 `;
 

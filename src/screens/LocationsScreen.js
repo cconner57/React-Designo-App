@@ -1,20 +1,53 @@
 import React from 'react';
+import LocationItem from '../components/LocationItem';
+import styled from 'styled-components';
+import { Container, colors } from '../Styles';
+
+import CanadaMap from '../images/locations/desktop/image-map-canada.png';
+import AustraliaMap from '../images/locations/desktop/image-map-australia.png';
+import UKMap from '../images/locations/desktop/image-map-united-kingdom.png';
 
 const LocationsScreen = () => {
 	return (
-		<div>
-			Canada Designo Central Office 3886 Wellington Street Toronto, Ontario M9C
-			3J5 Contact P : +1 253-863-8967 M : contact@designo.co Australia Designo
-			AU Office 19 Balonne Street New South Wales 2443 Contact P : (02) 6720
-			9092 M : contact@designo.au United Kingdom Designo UK Office 13 Colorado
-			Way Rhyd-y-fro SA8 9GA Contact P : 078 3115 1400 M : contact@designo.uk
-			Let’s talk about your project Ready to take it to the next level? Contact
-			us today and find out how our expertise can help your business grow. Get
-			in touch Our company Locations Contact Designo Central Office 3886
-			Wellington Street Toronto, Ontario M9C 3J5 Contact Us (Central Office) P :
-			+1 253-863-8967 M : contact@designo.co
-		</div>
+		<LocationContainer>
+			<LocationItem
+				name='Canada'
+				abr='Central'
+				address1='3886 Wellington Street'
+				address2='Toronto, Ontario M9C 3J5'
+				phone='+1 253-863-8967'
+				email='contact@designo.co'
+				image={CanadaMap}
+			/>
+			<LocationItem
+				name='Australia'
+				abr='AU'
+				address1='19 Balonne Street'
+				address2='New South Wales 2443'
+				phone='(02) 6720
+			9092'
+				email='contact@designo.au'
+				image={AustraliaMap}
+			/>
+			<LocationItem
+				name='United Kingdom'
+				abr='UK'
+				address1='13 Colorado
+			Way'
+				address2='Rhyd-y-fro SA8 9GA'
+				phone='078 3115 1400'
+				email='contact@designo.uk'
+				image={UKMap}
+			/>
+		</LocationContainer>
 	);
 };
 
 export default LocationsScreen;
+
+const LocationContainer = styled(Container)`
+	min-height: 85vh;
+	min-width: 100vw;
+	flex-direction: column;
+	margin-bottom: 400px;
+`;
