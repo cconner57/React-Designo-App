@@ -47,18 +47,6 @@ const TitleContainer = styled(Container)`
 				color: ${colors.black};
 			}
 		}
-		.Phone {
-			position: absolute;
-			top: -60px;
-			right: 0;
-			z-index: 3;
-		}
-		.BGCircle {
-			position: absolute;
-			top: 0;
-			right: 0;
-			z-index: 2;
-		}
 	}
 	.TextContainer {
 		max-width: 410px;

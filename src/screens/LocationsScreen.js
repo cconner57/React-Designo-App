@@ -1,7 +1,7 @@
 import React from 'react';
 import LocationItem from '../components/LocationItem';
 import styled from 'styled-components';
-import { Container, colors } from '../Styles';
+import { Container } from '../Styles';
 
 import CanadaMap from '../images/locations/desktop/image-map-canada.png';
 import AustraliaMap from '../images/locations/desktop/image-map-australia.png';

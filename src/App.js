@@ -1,5 +1,6 @@
 import GlobalStyle from './GlobalStyle';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 
 import HomeScreen from './screens/HomeScreen';
 import WebDesignScreen from './screens/WebDesignScreen';
@@ -14,6 +15,7 @@ import Footer from './components/Footer';
 const App = () => {
 	return (
 		<Router>
+			<ScrollToTop />
 			<Nav />
 			<Switch>
 				<Route path='/about' component={AboutScreen} />

@@ -5,6 +5,8 @@ import styled from 'styled-components';
 import { Container, Button, colors } from '../Styles';
 import Circle from '../images/contact/desktop/bg-pattern-hero-desktop.svg';
 
+import { ReactComponent as LeafPattern } from '../images/shared/desktop/bg-pattern-leaf.svg';
+
 const ContactScreen = () => {
 	return (
 		<ContactContainer>
@@ -20,9 +22,7 @@ const ContactScreen = () => {
 					<textarea name='message' cols='30' rows='10'>
 						Your Message
 					</textarea>
-					<Button>
-						Submit
-					</Button>
+					<Button>Submit</Button>
 					<img className='ContactCircle' src={Circle} alt='Background Circle' />
 				</ContactForm>
 			</PageTitle>
@@ -31,6 +31,7 @@ const ContactScreen = () => {
 				<Location title='Australia' />
 				<Location title='United Kingdom' />
 			</div>
+			<LeafPattern className='LeafPatternBottom' />
 		</ContactContainer>
 	);
 };
@@ -50,6 +51,14 @@ const ContactContainer = styled(Container)`
 		margin-top: 160px;
 		display: flex;
 		justify-content: space-evenly;
+	}
+	.LeafPatternBottom {
+		position: absolute;
+		bottom: -350px;
+		right: 0;
+		z-index: -1;
+		transform-origin: 50% 75%;
+		transform: rotate(180deg);
 	}
 `;
 

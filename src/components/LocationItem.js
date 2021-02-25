@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Container, H2, Body, colors } from '../Styles';
 
+import { ReactComponent as Circles } from '../images/shared/desktop/bg-pattern-three-circles.svg';
+
 const LocationItem = ({
 	name,
 	abr,
@@ -17,6 +19,7 @@ const LocationItem = ({
 				<img style={{ marginRight: '30px' }} src={image} alt='Map' />
 			)}
 			<div className='ContactContainer'>
+				<Circles className='Circles' />
 				<H2>{name}</H2>
 				<div className='Contact'>
 					<div className='Address'>
@@ -51,27 +54,35 @@ const LocationContainer = styled(Container)`
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		position: relative;
+		overflow: hidden;
 		border-radius: 15px;
 		background-color: hsl(14, 76%, 97%);
+		.Circles {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+
+		}
 		h2 {
-            margin-left: 95px;
+			margin-left: 95px;
 			align-self: flex-start;
 			color: ${colors.peach};
 		}
 		.Contact {
-            height: 150px;
-            width: 540px;
+			height: 150px;
+			width: 540px;
 			display: flex;
 			.Address,
 			.Contact {
 				height: 78px;
 				width: 255px;
-                margin-top: 24px;
-                display: flex;
-                flex-direction: column;
-                p {
-                    margin: 0;
-                }
+				margin-top: 24px;
+				display: flex;
+				flex-direction: column;
+				p {
+					margin: 0;
+				}
 			}
 		}
 	}

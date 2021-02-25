@@ -18,6 +18,11 @@ export const Button = styled.button`
 		backgroundColor || 'hsl(0, 0%, 100%)'};
 	text-transform: uppercase;
 	cursor: pointer;
+	transition: all .25s ease;
+	&:hover {
+		color: ${colors.white};
+		background-color: ${colors.lightPeach};
+	}
 `;
 
 export const Container = styled.div`

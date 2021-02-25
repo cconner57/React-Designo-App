@@ -33,9 +33,13 @@ const DesignContainer = styled(Container)`
 	flex-direction: column;
 	border-radius: 15px;
 	color: ${colors.white};
-	background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-		url(${(props) => props.image});
+	background-image: url(${(props) => props.image});
+	box-shadow: inset 0 0 0 1000px rgba(0,0,0,.4);
 	cursor: pointer;
+	transition: box-shadow .5s ease;
+	&:hover {
+		box-shadow: inset 0 0 0 1000px hsla(10,72%,66%,.8);
+	}
 	p {
 		margin-top: 24px;
 		font-weight: 500;

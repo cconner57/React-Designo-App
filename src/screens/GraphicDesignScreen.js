@@ -60,6 +60,7 @@ export default GraphicDesignScreen;
 const GraphicDesignContainer = styled(Container)`
 	display: flex;
 	flex-direction: column;
+	margin-bottom: 400px;
 	.LeafPatternTop {
 		position: absolute;
 		top: 15rem;

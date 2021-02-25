@@ -75,6 +75,7 @@ export default WebDesignScreen;
 const WebDesignContainer = styled(Container)`
 	display: flex;
 	flex-direction: column;
+	margin-bottom: 400px;
 	.LeafPatternTop {
 		position: absolute;
 		top: 15rem;
